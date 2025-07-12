@@ -1,0 +1,16 @@
+function TDEE = calculateTDEE(weight, height, age, activityLvl, gender)
+    %This function calculates TDEE (Total daily energy expenditure:represents the 
+    % total number of calories your body burns in a 24-hour period)
+    
+    %Variables: weight (kg), height (cm), age (years), activityLvl (num) 
+
+    % Calculate BMR based on gender
+    if strCmp('Female', gender)
+        BMR = (10*weight) + (6.25*height) - (5*age) - 161;
+    else 
+        BMR = (10*weight) + (6.25*height) - (5*age) + 5;
+    end
+
+    % Calculate TDEE by multiplying BMR with activity level
+    TDEE = BMR * activityLvl;
+end
