@@ -1,5 +1,5 @@
 clear
-load("/MATLAB Drive/matlab-mobile-fitness-tracker/Data/sensorlog_20250711_134319 Walking + standing still.mat")
+load("Data/MixedActivity/walkingthedogs.mat");
 
 %Variable Initialization
 lat = Position.latitude;
