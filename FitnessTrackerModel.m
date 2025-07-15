@@ -1,5 +1,5 @@
-%Contributors: Kevin, Tenzin, Justin
-%Project: Fitness Tracker Model
+%% Contributors: Kevin, Tenzin, Justin
+%% Project: Fitness Tracker Model
 
 clear;
 close all;
@@ -9,7 +9,7 @@ clear;
 app = app1();
 
 % Load and assign values from userData struct
-load("userData.mat")
+load("userData.mat");
 
 %% Currently not being used, but created variables for future func calls
 weight = userData.weight;
@@ -22,35 +22,25 @@ gender = userData.gender;
 %% Get all accelerations from folders and assign them to a variable
 clear all;
 clc;
-
 allAcceleration = getAllAccelerations();
 allAcceleration = timetable2table(allAcceleration, "ConvertRowTimes", false);
 
-%%Run classificationLeaner and test allAccelerations
+%% Run classificationLeaner and test allAccelerations
 classificationLearner
 
-%% Train model
-% For this example, I am graphing my activity when I walked my dogs
+%% Train the model
+activity = load(fullfile('Data/MixedActivity/walkingthedogs.mat'));
+justAcc = timetable2table(activity.Acceleration, "ConvertRowTimes", false); %remove timestamps
+yfit = trainedModel.predictFcn(justAcc); % train the model picked out from classficationLearner
+activity.Acceleration.Activity = yfit; % add activity vector label to activity
 
-walkTheBoys = load(fullfile('Data/MixedActivity/walkingAndStandingInHousehold.mat'));
-justAcc = timetable2table(walkTheBoys.Acceleration, "ConvertRowTimes", false);
-yfit = trainedModel.predictFcn(justAcc);
-walkTheBoys.Acceleration.Activity = yfit;
-
-weight = 86.1826;
-totCaloriesBurned = calculateTotCaloriesBurned(weight,walkTheBoys);
+% Calculate total calories burned
+weight = 86.1826; %I chose an arbitary value for weight
+totCaloriesBurned = calculateTotCaloriesBurned(weight,activity) 
 
 %% Plot on pie chart
 yfitcat = categorical(cellstr(yfit)); % convert to correct data type for histogram
-pie(yfitcat);
+plotTotalCalBurned(totCaloriesBurned, yfitcat);
 
-%% Train
-walkTheBoysAcceleration = load(fullfile('Data/MixedActivity/walkingthedogs.mat'));
-var1= timetable2table(walkTheBoysAcceleration.Acceleration, "ConvertRowTimes", false);
-classificationLearner
 
-oneLog = load(fullfile("Data/Walking/kevin_walking.mat"))
-yfit = trainedModel.predictFcn(justAcc);
 
-yfitcat = categorical(cellstr(yfit));
-pie(yfitcat);
