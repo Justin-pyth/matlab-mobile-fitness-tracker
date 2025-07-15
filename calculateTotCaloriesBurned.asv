@@ -1,0 +1,21 @@
+function totalCalBurned = calculateTotCaloriesBurned(weight)
+
+    % activity = load(fullfile('Data/MixedActivity/walkingthedogs.mat'));
+    activity = load(fullfile('Data/Running/kevin_running.mat'));
+    
+    %Compute the total duratiokn of the activty to seconds
+    totTime = seconds(activity.Acceleration.Timestamp(end) - ...
+        activity.Acceleration.Timestamp(1));
+
+    %Convert seconds to hours
+    totTime = totTime/3600;
+    durPerEachRow = totTime/size(activity.Acceleration, 1);
+
+    %%Calculate MET
+    MET_values = [1.3, 3.5, 8.0];
+    caloriesBurnedFunc = @(met, weight, durPerEachRow) met * weight * durPerEachRow;
+    caloriesBurned = arrayfun(@(met) caloriesBurnedFunc(met, weight, duration), MET_values);
+
+    % Calories = MET × weight × duration
+    % totalCalBurned = sum(caloriesBurned);
+end

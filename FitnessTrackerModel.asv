@@ -32,15 +32,11 @@ classificationLearner
 %% Train model
 % For this example, I am graphing my activity when I walked my dogs
 
-walkTheBoys = load(fullfile('Data/MixedActivity/walkingAndStandingInHousehold.mat'));
-justAcc = timetable2table(walkTheBoys.Acceleration, "ConvertRowTimes", false);
+walkTheBoysAcceleration = load(fullfile('Data/MixedActivity/sensorlog_20250711_134319 Walking + standing still (1).mat'));
+justAcc = timetable2table(walkTheBoysAcceleration.Acceleration, "ConvertRowTimes", false);
 yfit = trainedModel.predictFcn(justAcc);
-walkTheBoys.Acceleration.Activity = yfit;
 
-weight = 86.1826;
-totCaloriesBurned = calculateTotCaloriesBurned(weight,walkTheBoys);
-
-%% Plot on pie chart
+% Plot on pie chart
 yfitcat = categorical(cellstr(yfit)); % convert to correct data type for histogram
 pie(yfitcat);
 

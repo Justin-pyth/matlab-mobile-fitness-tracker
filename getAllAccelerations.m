@@ -9,7 +9,7 @@ function allAccelerations = getAllAccelerations()
     
     % Loop through each folder to grab all accelerations
     for i = 1:length(folderPaths)
-        files = dir(fullfile(folderPaths{i}, '*.mat')); 
+        files = dir(fullfile(folderPaths{i}, '*.mat')) 
         for j = 1:length(files)
             data = load(fullfile(folderPaths{i}, files(j).name)); 
             label = createLabel(data, i); % Calls user function to add labels
