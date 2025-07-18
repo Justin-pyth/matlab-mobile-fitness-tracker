@@ -38,22 +38,12 @@ pIforSimulatedData = trainedModel.predictFcn(simWorkout);
 disp(['Predicted Workout Intensity for Simulated Data: ', char(pIforSimulatedData)]);
 
 
-%%
-file = "Data/MixedActivity/walkingthedogs.mat";
-addpath("ActivityFunctions")
+%% 
 
-steps = getTotalSteps(file);
-duration = getDuration(file);
-distance = getDistance(file);
-[avgAccel, maxAccel] = getAvgMaxAccel(file);
-altGain = getAltitudeGain(file);
+load("Data/MixedActivity/walkingthedogs.mat");
 
-avgPace = distance / (duration * 60);
 
-dogWorkout = table(steps, duration, distance, avgPace, avgAccel, maxAccel, altGain);
 
-dogWorkout.Properties.VariableNames = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
 
-% predicting now:
-pIforWalkingDogsData = trainedModel.predictFcn(dogWorkout);
-disp(['Predicted Intensity for walking dogs: ', char(pIforWalkingDogsData)]);
+pIforWalkingDogsData = trainedModel.predictFcn(realWorkout);
+disp(['Predicted Intensity: ', char(pIforWalkingDogsData)]);
