@@ -1,4 +1,4 @@
-function newArray = timeElapsed(datetime_array)
+function newArray = getTimeElapsed(datetime_array)
     % This function converts an array of elements in datetime format
     % into the total elapsed time in seconds since the first data point was
     % acquired
