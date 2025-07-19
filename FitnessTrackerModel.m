@@ -6,7 +6,7 @@ close all;
 clear;
 
 % Runs the app and stores user input
-app = app1();
+app = FitnessTracker();
 
 % Load and assign values from userData struct
 load("userData.mat");
