@@ -29,7 +29,7 @@ allAcceleration = timetable2table(allAcceleration, "ConvertRowTimes", false);
 classificationLearner
 
 %% Train the model
-activity = load(fullfile('Data/MixedActivity/walkingthedogs.mat'));
+activity = load(fullfile('Data/MixedActivity/kevin_standingtest.mat'));
 justAcc = timetable2table(activity.Acceleration, "ConvertRowTimes", false); %remove timestamps
 yfit = trainedModel.predictFcn(justAcc); % train the model picked out from classficationLearner
 activity.Acceleration.Activity = yfit; % add activity vector label to activity
