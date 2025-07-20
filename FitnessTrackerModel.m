@@ -22,7 +22,7 @@ totCaloriesBurned = calculateTotCaloriesBurned(weight,activity)
 
 %% Plot on pie chart
 yfitcat = categorical(cellstr(yfit)); % convert to correct data type for histogram
-%plotTotalCalBurned(totCaloriesBurned, yfitcat);
+plotTotalCalBurned(totCaloriesBurned, yfitcat);
 
 %% Run the app and store user input
 app = FitnessTracker();

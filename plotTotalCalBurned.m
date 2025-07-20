@@ -1,4 +1,4 @@
-function plotTotalCalBurned(graph, totalCalBurned, yfitcat)
+function plotTotalCalBurned( totalCalBurned, yfitcat)
     % This function creates a visual summary of your workout. It shows how 
     % much time you spent walking, running, and sitting, calculates total 
     % calories burned, and compares that to fun food equivalents like Cokes 
