@@ -1,23 +1,5 @@
 %% Contributors: Kevin, Tenzin, Justin
-%% Project: Fitness Tracker Model
-
-% clear;
-% close all;
-% clear;
-
-% Runs the app and stores user input
-app = FitnessTracker();
-
-% Load and assign values from userData struct
-load("userData.mat");
-
-%% Currently not being used, but created variables for future func calls
-weight = userData.weight;
-height = userData.height;
-age = userData.height;
-activityLvl = userData.activityLvl;
-gender = userData.gender;
-
+% Project: Fitness Tracker Model
 
 %% Get all accelerations from folders and assign them to a variable
 clear all;
@@ -42,5 +24,9 @@ totCaloriesBurned = calculateTotCaloriesBurned(weight,activity)
 yfitcat = categorical(cellstr(yfit)); % convert to correct data type for histogram
 %plotTotalCalBurned(totCaloriesBurned, yfitcat);
 
+%% Run the app and store user input
+app = FitnessTracker();
 
+% Load and assign values from userData struct
+load("userData.mat");
 
