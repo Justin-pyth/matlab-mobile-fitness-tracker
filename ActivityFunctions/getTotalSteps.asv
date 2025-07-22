@@ -1,5 +1,6 @@
 function steps = getTotalSteps(filename)
-    load(filename);
+    %load(filename);
+    load('Data/MixedActivity/kevin_shortrun1.mat')
     addpath("ActivityFunctions");
 
 % Extract acceleration and time
@@ -7,7 +8,12 @@ X = Acceleration.X;
 Y = Acceleration.Y;
 Z = Acceleration.Z;
 
-accelTime = getTimeElapsedImproved(Acceleration.Timestamp);  
+
+if size(Acceleration.Timestamp) >= 100000 %If the file takes too long to process
+    accelTime = second(Acceleration.Timestamp(1:100000,1));
+else
+    accelTime = getTimeElapsed(Acceleration.Timestamp)
+end
 
 % Calculate acceleration magnitude and remove gravity
 accMag = sqrt(X.^2 + Y.^2 + Z.^2);
