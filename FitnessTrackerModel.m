@@ -12,23 +12,3 @@ classificationLearner
 
 %% Run the app and store user input
 app = FitnessTracker();
-
-
-%%
-load("Data/MixedActivity/kevin_longrun1.mat");
-
-%%
-plot3(Position.longitude, Position.latitude, Position.altitude, 'LineWidth', 2)
-xlabel('Longitude'); ylabel('Latitude'); zlabel('Elevation (m)')
-grid on
-title('3D Elevation Path')
-%%
-contour3(Z);
-%%
-contourf(Position.longitude,Position.latitude, Position.altitude);
-%%
-geoscatter(Position.latitude, Position.longitude, 15, Position.altitude, 'filled')
-colorbar
-title('Elevation Map of Run')
-
-%%
