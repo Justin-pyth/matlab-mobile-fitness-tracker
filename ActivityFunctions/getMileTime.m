@@ -21,6 +21,10 @@ function mileTime = getMileTime(filename)
     times = Position.Timestamp;
     time = getTimeElapsedImproved(times);
     totTimeH = time(end,1)/3600;
+<<<<<<< HEAD
     mileTime = totaldis/totTimeH;
+=======
+    miletime = totaldis/totTimeH;
+>>>>>>> 68c7afcdbad65f86a088464b9e740fc5ebf30565
 
 end
