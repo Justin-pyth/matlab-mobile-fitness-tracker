@@ -12,7 +12,7 @@ function allAccelerations = getAllAccelerations()
         files = dir(fullfile(folderPaths{i}, '*.mat')); %Retrieve all files in folder
         for j = 1:length(files)
             data = load(fullfile(folderPaths{i}, files(j).name)); %Load file one at time
-            label = createLabel(data, i); % Calls user function to add labels
+            label = createLabel(data, i, "Acceleration"); % Calls user function to add labels
             data.Acceleration.Activity = label; % Adds label to activity
             allAccelerations = [allAccelerations; data.Acceleration]; % Concatenate accelerations
         end
