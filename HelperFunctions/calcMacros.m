@@ -1,6 +1,5 @@
-function calories = calcMacros(foodData)
+function calories = calcMacros(protein, carbs, fat)
     %Calculates total calories and adds them to a counter based on the
     %given protein, fat, and carb data
-    calories = (4 * foodData.protein) + (4 * foodData.carbohydrates) + (foodData.fat * 7);
-
+    calories = (4 * protein) + (4 * carbs) + (7 * fat);
 end
