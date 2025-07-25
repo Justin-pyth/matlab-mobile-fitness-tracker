@@ -104,3 +104,34 @@ save('userHistory.mat', 'userHistory');
 userHistory
 %% 
 userHistory
+
+%%
+simData = load('IntensityRL/SimWorkouts.mat', 'WorkoutData');
+realData = load('WorkoutData.mat', 'WorkoutData');
+
+% Get variable names
+simVars = simData.WorkoutData.Properties.VariableNames;
+realVars = realData.WorkoutData.Properties.VariableNames;
+
+% Display
+disp("Simulated WorkoutData vars:");
+disp(simVars);
+
+disp("Real WorkoutData vars:");
+disp(realVars);
+
+%% 
+
+% Load both tables
+sim = load("IntensityRL/SimWorkouts.mat", "WorkoutData");
+real = load("WorkoutData.mat", "WorkoutData");
+
+% Rename the column in simulated data
+sim.WorkoutData.Properties.VariableNames{'intensityScore'} = 'intensity';
+
+% Combine the two
+WorkoutData = [real.WorkoutData; sim.WorkoutData];
+
+% Save the updated table
+save("WorkoutData.mat", "WorkoutData");
+disp("Simulated data successfully appended to WorkoutData.mat");

@@ -21,4 +21,15 @@ disp('hi')
 %appendWorkoutWithLabel("Data/Sitting/kevin_sitting.mat");
 
 %appendWorkoutWithLabel("Data/MixedActivity/kevin_longrun1.mat");
+%appendWorkoutWithLabel("Data/MixedActivity/kevin_hike1.mat");
+%appendWorkoutWithLabel("Data/MixedActivity/kevin_longrun1.mat");
+%appendWorkoutWithLabel("Data/MixedActivity/kevin_shortrun1.mat");
+%appendWorkoutWithLabel("Data/MixedActivity/kevin_standing2.mat");
+%appendWorkoutWithLabel("Data/MixedActivity/kevin_walkingandstanding.mat");
+%appendWorkoutWithLabel("Data/MixedActivity/sensorlog_20250711_134319 Walking + standing still (1).mat");
+%appendWorkoutWithLabel("Data/MixedActivity/walkingAndStandingInHousehold.mat");
+
+
+
+
 

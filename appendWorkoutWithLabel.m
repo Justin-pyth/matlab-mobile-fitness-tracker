@@ -6,7 +6,7 @@ function appendWorkoutWithLabel(file)
     duration = getDuration(file);
     distance = getDistance(file);
     [avgAccel, maxAccel] = getAvgMaxAccel(file);
-    altGain = getAltitudeGain(file);
+    altGain = getTotalAltitudeGain(file);
     avgPace = (distance * 5280) / (duration * 60);
 
     % Create table

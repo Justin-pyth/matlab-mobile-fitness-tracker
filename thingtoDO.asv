@@ -13,9 +13,13 @@ justin_running.accel                 % Access field, if available
 
 disp('hi')
 %% 
+%appendWorkoutWithLabel("MATLAB_DRIVE/MobileSensorData/mediumWalk_tenzin.mat");
+%appendWorkoutWithLabel("MATLAB_DRIVE/MobileSensorData/mediumWalk2_tenzin.mat");
+%appendWorkoutWithLabel("MATLAB_DRIVE/MobileSensorData/mediumWalk3_tenzin.mat");
+
+%appendWorkoutWithLabel("Data/Sitting/justin_sitting.mat");
+%appendWorkoutWithLabel("Data/Sitting/kevin_sitting.mat");
+
 %appendWorkoutWithLabel("Data/MixedActivity/kevin_longrun1.mat");
-%appendWorkoutWithLabel("/Users/tchoezin/Downloads/MATLAB_DRIVE/MobileSensorData/mediumWalk_tenzin.mat");
-%appendWorkoutWithLabel("/Users/tchoezin/Downloads/MATLAB_DRIVE/MobileSensorData/mediumWalk2_tenzin.mat");
-%appendWorkoutWithLabel("/Users/tchoezin/Downloads/MATLAB_DRIVE/MobileSensorData/mediumWalk3_tenzin.mat");
-appendWorkoutWithLabel("Data/Sitting/kevin_longrun1.mat");
+appendWorkoutWithLabel("Data/MixedActivity/kevin_hike1.mat");
 
