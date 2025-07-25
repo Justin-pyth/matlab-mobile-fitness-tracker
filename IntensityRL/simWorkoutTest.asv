@@ -1,0 +1,53 @@
+%0. Run createSimWorkoutData.m
+%1. Click "New Session > From Workspace"
+%2.	Choose WorkoutData
+%3.	Set intensityScore as the response
+%4.	Click "All Quick-to-Train", then "Train All"
+%5.	Select the best model (based on RMSE or R²)
+%6.	Click "Export Model" (to workspace, name: trainedModel)
+
+% if you named the model anything other than
+% 'trainedModel', make sure you change the variable below
+
+% now run this file to test the trained model on more simulated data:
+%%
+regressionLearner
+
+%% 
+
+% Simulated Fake Workout
+newSteps = 6200;
+newDuration = 30; % min
+newDistance = newSteps * 2.4;
+newAvgPace = newDistance / (newDuration * 60);
+newAvgAccel = 0.5;
+newMaxAccel = 0.9;
+newAltGain = 20;
+
+simWorkout = table(newSteps, newDuration, newDistance, newAvgPace, newAvgAccel, newMaxAccel, newAltGain);
+
+% renaming column headers to match training table
+simWorkout.Properties.VariableNames = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
+
+% Predict numeric score
+predictedScore = trainedModel.predictFcn(simWorkout);
+disp(['Predicted Intensity Score for (1–10): ', num2str(predictedScore, '%.2f')]);
+%%
+file = "Data/MixedActivity/walkingthedogs.mat";
+addpath("ActivityFunctions")
+
+steps = getTotalSteps(file);
+duration = getDuration(file);
+distance = getDistance(file);
+[avgAccel, maxAccel] = getAvgMaxAccel(file);
+altGain = getAltitudeGain(file);
+
+avgPace = distance / (duration * 60);
+
+dogWorkout = table(steps, duration, distance, avgPace, avgAccel, maxAccel, altGain);
+
+dogWorkout.Properties.VariableNames = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
+
+% predicting now:
+predictedScore2 = trainedModel.predictFcn(dogWorkout);
+disp(['Predicted Intensity for walking dogs: ', char(predictedScore2)]);
