@@ -1,95 +1,57 @@
-%0. Run createSimWorkoutData.m
-%1. Click "New Session > From Workspace"
-%2.	Choose WorkoutData
-%3.	Set intensityScore as the response
-%4.	Click "All Quick-to-Train", then "Train All"
-%5.	Select the best model (based on RMSE or R²)
-%6.	Click "Export Model" (to workspace, name: trainedModel)
+% Predict Fake Workout
 
-% if you named the model anything other than
-% 'trainedModel', make sure you change the variable below
+fakeSteps = 6200;
+fakeDuration = 30; % min
+fakeDistance = newSteps * 2.4;
+fakeAvgPace = (newDistance * 5280) / (fakeDuration * 60);
+fakeAvgAccel = 0.5;
+fakeMaxAccel = 0.9;
+fakeAltGain = 20;
 
-% now run this file to test the trained model on more simulated data:
-%%
-regressionLearner
+Workout1 = table(fakeSteps, fakeDuration, fakeDistance, fakeAvgPace, fakeAvgAccel, fakeMaxAccel, fakeAltGain);
+Workout1.Properties.VariableNames = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
 
-%% 
-
-% Simulated Fake Workout
-newSteps = 6200;
-newDuration = 30; % min
-newDistance = newSteps * 2.4;
-newAvgPace = (newDistance * 5280) / (newDuration * 60);
-newAvgAccel = 0.5;
-newMaxAccel = 0.9;
-newAltGain = 20;
-
-simWorkout = table(newSteps, newDuration, newDistance, newAvgPace, newAvgAccel, newMaxAccel, newAltGain);
-
-% renaming column headers to match training table
-simWorkout.Properties.VariableNames = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
-
-% Predict numeric score
-predictedScore = trainedModel.predictFcn(simWorkout);
+% predicting now:
+predictedScore = trainedModel.predictFcn(Workout1);
 disp(['Predicted Intensity Score for simulated data (1–10): ', num2str(predictedScore, '%.2f')]);
 %%
+%Predict Real Work
+
 file = "Data/MixedActivity/kevin_longrun1.mat";
 addpath("ActivityFunctions")
 
-steps = getTotalSteps(file);
-duration = getDuration(file);
-distance = getDistance(file);
-[avgAccel, maxAccel] = getAvgMaxAccel(file);
-altGain = getAltitudeGain(file);
+teststeps2 = getTotalSteps(file);
+testduration2 = getDuration(file);
+testdistance2 = getDistance(file);
+[testAvgAccel2, testMaxAccel2] = getAvgMaxAccel(file);
+testAltGain2 = getTotalAltitudeGain(file);
+testAvgPace2 = (testdistance2 * 5280) / (testduration2 * 60);
 
-avgPace = (distance * 5280) / (duration * 60);
-
-runLongWorkout = table(steps, duration, distance, avgPace, avgAccel, maxAccel, altGain);
-
+runLongWorkout = table(teststeps2, testduration2, testdistance2, testAvgPace2, testAvgAccel2, testMaxAccel2, testAltGain2);
 runLongWorkout.Properties.VariableNames = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
 
 % predicting now:
 predictedScore2 = trainedModel.predictFcn(runLongWorkout);
 disp(['Predicted Intensity Score for running long: ', num2str(predictedScore2, '%.2f')]);
 %%
+%Predict More Real Work
+
 file1 = "Data/MixedActivity/kevin_shortrun1.mat";
 addpath("ActivityFunctions")
 
-steps = getTotalSteps(file1);
-duration = getDuration(file1);
-distance = getDistance(file1);
-[avgAccel, maxAccel] = getAvgMaxAccel(file1);
-altGain = getAltitudeGain(file1);
+teststeps2 = getTotalSteps(file1);
+testduration2 = getDuration(file1);
+testdistance2 = getDistance(file1);
+[testAvgAccel2, testMaxAccel2] = getAvgMaxAccel(file1);
+testAltGain2 = getAltitudeGain(file1);
+testAvgPace2 = (testdistance2 * 5280) / (testduration2 * 60);
 
-avgPace = (distance * 5280) / (duration * 60);
-
-shortRunWorkout = table(steps, duration, distance, avgPace, avgAccel, maxAccel, altGain);
-
+shortRunWorkout = table(teststeps2, testduration2, testdistance2, testAvgPace2, testAvgAccel2, testMaxAccel2, testAltGain2);
 shortRunWorkout.Properties.VariableNames = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
 
 % predicting now:
 predictedScore3 = trainedModel.predictFcn(shortRunWorkout);
 disp(['Predicted Intensity Score for running short: ', num2str(predictedScore3, '%.2f')]);
-
-%%
-disp("hi");
-
-%%
-trained = load('trainedModel.mat');
-trainedModel = trained.trainedModel;
-%trainedModel.PredictorNames
-
-trainedModel.predictFcn
-trainedModel.RequiredVariables
-
-%%
-whos('-file', 'trainedModel.mat')
-%% 
-trainedModel.RequiredVariables
-
-%%
-load('userHistory.mat')
-userHistory
 %% 
 trained = load('trainedModel.mat');
 trainedModel = trained.trainedModel;
@@ -103,24 +65,9 @@ save('userHistory.mat', 'userHistory');
 
 userHistory
 %% 
-userHistory
-
-%%
-simData = load('IntensityRL/SimWorkouts.mat', 'WorkoutData');
-realData = load('WorkoutData.mat', 'WorkoutData');
-
-% Get variable names
-simVars = simData.WorkoutData.Properties.VariableNames;
-realVars = realData.WorkoutData.Properties.VariableNames;
-
-% Display
-disp("Simulated WorkoutData vars:");
-disp(simVars);
-
-disp("Real WorkoutData vars:");
-disp(realVars);
-
-%% 
+% To combine both simulated workout data and real workout data
+% *needs WorkoutData already filled in with real data using
+% appendWorkoutWithLabel function
 
 % Load both tables
 sim = load("IntensityRL/SimWorkouts.mat", "WorkoutData");

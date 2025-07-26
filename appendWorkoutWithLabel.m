@@ -1,6 +1,7 @@
 function appendWorkoutWithLabel(file)
     addpath("ActivityFunctions");
-
+    addpath("IntensityRL");
+   
     % Extract features
     steps = getTotalSteps(file);
     duration = getDuration(file);
@@ -27,6 +28,6 @@ function appendWorkoutWithLabel(file)
         WorkoutData = workout;
     end
 
-    save('WorkoutData.mat', 'WorkoutData');
-    disp("Saved to WorkoutData.mat");
+    save('IntensityRL/WorkoutData.mat', 'WorkoutData');
+    disp("Saved to IntensityRL/WorkoutData.mat");
 end
