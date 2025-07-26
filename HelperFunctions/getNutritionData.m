@@ -1,8 +1,7 @@
 function nutritionData = getNutritionData(query)
-    % Your Nutritionix credentials
-    loadenv("Credentials.env");
-    appId = getenv("NUTRITIONIX_ID");
-    appKey = getenv("NUTRITIONIX_KEY");
+    % Your Nutritionix credentials (Burner)
+    appId = "2c806a1e";
+    appKey = "619763032a86981ff8e2596b8aa9b422";
 
     % API endpoint
     url = 'https://trackapi.nutritionix.com/v2/natural/nutrients';
