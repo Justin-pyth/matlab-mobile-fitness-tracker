@@ -1,4 +1,6 @@
 function updateUserHistory(workout, userID)
+    % Updates the user's history of workouts
+    
     folder = 'UserData';
     if ~exist(folder, 'dir')
         mkdir(folder);

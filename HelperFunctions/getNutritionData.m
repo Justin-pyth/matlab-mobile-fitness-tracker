@@ -1,4 +1,6 @@
 function nutritionData = getNutritionData(query)
+    % Communicates with the nutritionix API to get the nutrition values of the foods put into the food tracker
+
     % Your Nutritionix credentials (burner)
     appId = '2c806a1e';
     appKey = '619763032a86981ff8e2596b8aa9b422';

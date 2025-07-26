@@ -1,7 +1,10 @@
 function removeFood(foodName)
+    % Removes food from the foodData.m file
+
+    % Load foodData.m to be edited
     load("foodData.mat","foodData");    
     
-    % Find and remove
+    % Find and remove food
     idx = find(strcmp({foodData.name}, foodName), 1);
     if ~isempty(idx)
         foodData(idx) = [];

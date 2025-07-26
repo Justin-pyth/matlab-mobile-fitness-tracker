@@ -1,4 +1,6 @@
 function score = getRelativeIntensity(newWorkout, userHistory)
+    % Get the intensity of a specific workout 
+    
     fields = {'steps','duration','distance','avgPace','avgAccel','maxAccel','altGain'};
 
     if isempty(userHistory)

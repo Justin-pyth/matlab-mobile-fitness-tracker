@@ -1,6 +1,8 @@
 clear
 load("Data/MixedActivity/walkingthedogs.mat");
 
+% Test function to get mile time based on walking the dogs sensor data
+
 %Variable Initialization
 lat = Position.latitude;
 lon = Position.longitude;

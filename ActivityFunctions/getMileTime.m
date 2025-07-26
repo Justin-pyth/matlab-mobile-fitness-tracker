@@ -1,7 +1,10 @@
 function mileTime = getMileTime(filename)
+    % Get the mile time of the user based on MATLAB sensor data
+    
+    % Load sensor data
     load(filename);
 
-    %Variable Initialization
+    % Variable Initialization
     lat = Position.latitude;
     lon = Position.longitude;
     earthCirc = 24901;
@@ -21,6 +24,6 @@ function mileTime = getMileTime(filename)
     times = Position.Timestamp;
     time = getTimeElapsedImproved(times);
     totTimeH = time(end,1)/3600;
-    miletime = totaldis/totTimeH;
+    mileTime = totaldis/totTimeH;
 
 end

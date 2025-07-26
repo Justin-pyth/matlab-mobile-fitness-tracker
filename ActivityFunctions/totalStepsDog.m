@@ -1,3 +1,5 @@
+%Test file to get total steps take from walking the dogs MATLAB sensor data
+
 clear
 load("Data/MixedActivity/walkingthedogs.mat");
 

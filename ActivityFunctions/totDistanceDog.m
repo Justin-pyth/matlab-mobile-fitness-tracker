@@ -1,3 +1,5 @@
+% Testing getting the total distance walked from the walking the dogs MATLAB sensor data
+
 clear
 load("Data/MixedActivity/walkingthedogs.mat");
 

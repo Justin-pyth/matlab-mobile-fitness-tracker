@@ -1,4 +1,5 @@
 function steps = getTotalSteps(filename)
+    % Calculate the total amount of steps taken by a user based on MATLAB sensor data
     load(filename);
     addpath("ActivityFunctions");
 
