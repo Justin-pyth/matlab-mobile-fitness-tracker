@@ -52,7 +52,7 @@ Takes user input for food items and displays information about it such as the pr
 The total calories that the user has consumed for the day and total calories of the food imputed is displayed through text and different charts. The macronutrients of the food are displayed through a pie chart in the top right. Below it are the current calories the user has eaten for the day displayed through a bar chart. In addition to the current calories eaten, there’s the option to display the amount of calories you would need to eat to be in a calorie surplus, deficit, or to maintain. This is done through checking off the surplus, deficit, and maintenance check boxes respectively. The calories for the surplus, deficit, and maintenance are all based on the information given on the daily calorie estimator page. There is a list of the foods eaten at the bottom of the page with buttons to remove specific foods or reset the list of foods entirely. All of the food data was gathered using the nutrionix API. It’s able to parse the human language to get the proper data to be displayed. The connection to the API is done through the getNutritionData.m file. The API key and ID use a burner account to perform the connection to the API.
 
 
-**Layout** 
+### Layout
 (what each folder/file contains) and how to interact with it
 
 **FitnessTracker.mlapp -**
