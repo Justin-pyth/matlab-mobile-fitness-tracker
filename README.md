@@ -1,11 +1,42 @@
-**README.md**
-**Format: The final deliverable should be a public GitHub repository with:**
+## MATLAB Mobile FitnessTracker App
 
 **Group 17 Participants: Justin, Kevin, Tenzin**
 
 
 **Project Description:**
 We developed an application that tracks both the user's fitness activities and food intake throughout the day, allowing them to create a personalized plan to help reach their goals. Our motivation stemmed from the understanding that fitness and diet are crucial elements in achieving objectives such as weight loss, strength building, or enhancing longevity. The technology stack we employed consisted primarily of MATLAB for the backend and App Designer for the graphical user interface. One of our main challenges was training our models to accurately classify activities. We addressed this by utilizing MATLAB Mobile to collect data on the transition from walking to running on various types of terrain. Ultimately, the project culminated in a functional app that not only presents valuable data regarding fitness and diet but also provides users with a tailored plan to guide them on their journey to success.
+
+**Instructions to run the FitnessTracker App**
+
+1. Clone the github repository:
+    ```bash
+    git clone git@github.com:Justin-pyth/matlab-mobile-fitness-tracker.git
+    ```
+
+2. Open FitnessTracker.mlapp
+    by clicking on the file name 
+    or 
+    opening FitnessTrackerModel.m and running the following command
+    ```matlab
+    app = FitnessTracker();
+    ```
+
+3. Enter information onto the Daily Calorie Estimator tab
+
+4. Navigate to Food Tracker and enter name of foods and quantity you had. Examples below:
+      ```
+        2 costco pizzas
+        3 eggs
+        1 steak
+      ```
+
+5. Navigate to workout summary, and select workouts from the Data/MixedActivity Folder.
+       Recommended files to select:
+        ```
+        kevin_hike1.mat
+        kevin_longrun1.mat
+        kevin_shortrun1.mat
+       ```
 
 **Methods/Results:**
 The core aspect of the project involves training different models to distinguish between different segments of a workout and accurately classify their characteristics. We used diverse datasets to train the models, utilizing MATLAB’s Machine Learning tool, specifically the Classification Learner. Below, we explain how we trained three distinct models for our project.
