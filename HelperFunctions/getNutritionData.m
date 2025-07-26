@@ -1,5 +1,5 @@
 function nutritionData = getNutritionData(query)
-    % Your Nutritionix credentials (Burner)
+    % Your Nutritionix credentials
     appId = "2c806a1e";
     appKey = "619763032a86981ff8e2596b8aa9b422";
 
