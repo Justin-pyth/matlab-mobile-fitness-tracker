@@ -38,6 +38,10 @@ We developed an application that tracks both the user's fitness activities and f
         kevin_shortrun1.mat
        ```
 
+
+
+
+
 **Methods/Results:**
 The core aspect of the project involves training different models to distinguish between different segments of a workout and accurately classify their characteristics. We used diverse datasets to train the models, utilizing MATLAB’s Machine Learning tool, specifically the Classification Learner. Below, we explain how we trained three distinct models for our project.
 
