@@ -1,4 +1,4 @@
-function dataStruct = getData(folder)
+function dataStruct = getData(folderPath)
     
     % Get list of all .mat files in the folder
     fileList = dir(fullfile(folderPath, '*.mat'));
