@@ -22,17 +22,31 @@ Our objective for this model was to accurately calculate total elevation gain, f
 **Daily Calorie Estimator:**
 Calculates daily caloric intake to maintain weight based on the user’s weight, height, age, gender, and activity level.
 
+![Fitness Tracker](img/fitness_tracker.png)
 
 **Workout Summary:** 
 	This app page provides users with information and analysis of their recent workouts. Once a user selects a given MATLAB sensor file (created using the MATLAB mobile app sensor feature), users are given a multitude of graphs. These graphs include:
-	-MapWorkout Graph: The MapWorkout graph provides a top-down view of the user’s route during the workout. It displays key metrics such as distance, pace, time, calories burned, elevation gain, and steps taken.
-	-Elevation Chart: Displays the total elevation gain over the course of the workout.   
-	-Workout Intensity (Global vs Personalized): The Workout Intensity graph compares global intensity, which represents the user’s total effort across all workouts, with user-relative intensity, which reflects the intensity of each individual workout. This allows users to see how a single workout compares to their overall performance.
-	Activity Breakdown: The Activity Breakdown graph shows the percentage of time spent on different activities. In this example, the user spent 66% of the time walking, 33% running, and 1% sitting.
+	
+ 	-MapWorkout Graph: The MapWorkout graph provides a top-down view of the user’s route during the workout. It displays key metrics such as distance, pace, time, calories burned, elevation gain, and steps taken.
 
+![image 1](img/map1.png)
+
+	-Elevation Chart: Displays the total elevation gain over the course of the workout.   
+
+![image 2](img/elevation.png)
+ 
+	-Workout Intensity (Global vs Personalized): The Workout Intensity graph compares global intensity, which represents the user’s total effort across all workouts, with user-relative intensity, which reflects the intensity of each individual workout. This allows users to see how a single workout compares to their overall performance.
+
+![image 2](img/intensity.png)
+ 
+	-Activity Breakdown: The Activity Breakdown graph shows the percentage of time spent on different activities. In this example, the user spent 66% of the time walking, 33% running, and 1% sitting.
+
+![image 3](img/activity_breakdown.png)
 
 **Food Tracker:**
 Takes user input for food items and displays information about it such as the protein, fat, carbs, serving size of the food given, total calories of the food, and total calories the user has consumed so far. An interactable food list at the bottom of the page where you’re able to remove foods from the list or completely reset them is given as well. The data is displayed through text, pie charts, and bar charts.
+
+![image 4](img/foodtracker.png)
 
 **Functionality:** 
 The total calories that the user has consumed for the day and total calories of the food imputed is displayed through text and different charts. The macronutrients of the food are displayed through a pie chart in the top right. Below it are the current calories the user has eaten for the day displayed through a bar chart. In addition to the current calories eaten, there’s the option to display the amount of calories you would need to eat to be in a calorie surplus, deficit, or to maintain. This is done through checking off the surplus, deficit, and maintenance check boxes respectively. The calories for the surplus, deficit, and maintenance are all based on the information given on the daily calorie estimator page. There is a list of the foods eaten at the bottom of the page with buttons to remove specific foods or reset the list of foods entirely. All of the food data was gathered using the nutrionix API. It’s able to parse the human language to get the proper data to be displayed. The connection to the API is done through the getNutritionData.m file. The API key and ID use a burner account to perform the connection to the API.
@@ -74,3 +88,6 @@ The total calories that the user has consumed for the day and total calories of 
 **Tenzin** - App Designer, trained regression model on 7 calculated features, made functions in activity functions folder, collected real and simulated training data, and graphs, model creation calculations
 
 **Justin** - App Designer, Food Tracker UI, connected nutritionix API to app to get food information to be displayed on app and stored, collected training data for activity models, tested deep learning viability
+
+![image 5](img/foodtracker2.png)
+![image 6](img/map2.png)
